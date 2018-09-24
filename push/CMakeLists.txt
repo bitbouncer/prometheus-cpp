@@ -1,12 +1,12 @@
 find_package(CURL REQUIRED)
-find_package(cpr CONFIG REQUIRED PATHS ${PROJECT_SOURCE_DIR}/cmake)
+#find_package(cpr CONFIG REQUIRED PATHS ${PROJECT_SOURCE_DIR}/cmake)
 
 add_library(prometheus-cpp-push
   src/gateway.cc
 
   # cpr
 
-  $<TARGET_OBJECTS:cpr>
+  #$<TARGET_OBJECTS:cpr>
 )
 
 set_target_properties(prometheus-cpp-push PROPERTIES EXPORT_NAME push)
