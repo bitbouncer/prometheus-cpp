@@ -1,4 +1,4 @@
-find_package(civetweb CONFIG REQUIRED PATHS ${PROJECT_SOURCE_DIR}/cmake)
+#find_package(civetweb CONFIG REQUIRED PATHS ${PROJECT_SOURCE_DIR}/cmake)
 
 add_library(prometheus-cpp-pull
   src/exposer.cc
@@ -7,7 +7,7 @@ add_library(prometheus-cpp-pull
 
   # civetweb
 
-  $<TARGET_OBJECTS:civetweb>
+  #$<TARGET_OBJECTS:civetweb>
 )
 
 set_target_properties(prometheus-cpp-pull PROPERTIES EXPORT_NAME pull)
@@ -19,7 +19,7 @@ if(UNIX AND NOT APPLE)
 endif()
 
 target_include_directories(prometheus-cpp-pull PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>)
-target_include_directories(prometheus-cpp-pull PRIVATE ${CIVETWEB_INCLUDE_DIR})
+#target_include_directories(prometheus-cpp-pull PRIVATE ${CIVETWEB_INCLUDE_DIR})
 
 if(ENABLE_COMPRESSION)
   find_package(ZLIB REQUIRED)
